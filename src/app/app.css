@@ -1,0 +1,47 @@
+header {
+	display: flex;
+	justify-content: space-evenly;
+	background-color: var(--header-background-color);
+	padding: 20px;
+}
+header h1 {
+	color: var(--text-color);
+}
+
+main {
+	background-color: var(--background-color);
+}
+main h1,
+main p {
+	color: var(--text-color);
+}
+
+#login-modal {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 110px;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	background-color: #484848;
+	border-radius: 8px;
+	padding: 20px;
+	transform: translateY(0);
+	transition: 0.1s ease-in-out;
+}
+#login-modal.show {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(15px);
+}
+
+footer {
+	background-color: var(--footer-background-color);
+	padding: 10px;
+	text-align: center;
+}
+footer h1,
+footer p {
+	color: var(--text-color);
+}
