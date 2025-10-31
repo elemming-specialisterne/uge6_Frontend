@@ -1,0 +1,23 @@
+<div>
+  @if (loading) {
+    <p>Loading products…</p>
+  } @else if (error) {
+    <p class="error">{{ error }}</p>
+  } @else {
+    @if (products$ | async; as products) {
+      <div class="product-list">
+        @for (p of products; track p.id) {
+          <div class="product-item">
+            <h3>{{ p.name }}</h3>
+            <p>Price: {{ p.price }}</p>
+            <p>{{ p.description }}</p>
+          </div>
+        } @empty {
+          <p>No products found.</p>
+        }
+      </div>
+    } @else {
+      <p>No products found.</p>
+    }
+  }
+</div>
