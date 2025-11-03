@@ -1,44 +1,50 @@
 <header>
 	<h1>Some logo here</h1>
-	<h1>This is a header</h1>
-	<input class="toggle-button" type="button" value="Login" (click)="toggleLoginModal()">
+	<h1>Bjerget</h1>
+	<div>
+		@if (authService.currentUser$ | async; as user) {
+			<p>{{ user.id }}</p>
+			<p>{{ user.role }}</p>
+		}
+		<input class="toggle-button" type="button" value="Login" (click)="toggleLoginModal()">
+	</div>
 </header>
 <main>
 	<div id="login-modal" [class.show]="loginModalVisible()">
 		<p>Login Modal Placeholder</p>
-	  <input class="toggle-button" type="button" value="X" (click)="toggleLoginModal()">
+		<input class="toggle-button" type="button" value="X" (click)="toggleLoginModal()">
 		<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" formControlName="email" required>
-        @if(loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
-          <small>
-            email required.
-          </small>
-        }
-      </div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="text" id="email" name="email" formControlName="email" required>
+				@if(loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+				<small>
+					email required.
+				</small>
+				}
+			</div>
 
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" formControlName="password" required>
-        @if(loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
-          <small>
-            Password required.
-          </small>
-        }
-      </div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" formControlName="password" required>
+				@if(loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+				<small>
+					Password required.
+				</small>
+				}
+			</div>
 
-      <div class="form-group">
-        <button id="login-button" type="submit" [disabled]="loginForm.invalid">Login</button>
-      </div>
+			<div class="form-group">
+				<button id="login-button" type="submit" [disabled]="loginForm.invalid">Login</button>
+			</div>
 		</form>
 	</div>
-  <p>This is the main content area.</p>
-  @if (authService.currentUser$ | async; as user) {
-    <p>Welcome! Your JWT is {{ user }}!</p>
-    <app-product-list-component></app-product-list-component>
-  }
+	<p>This is the main content area.</p>
+	@if (authService.currentUser$ | async; as user) {
+		<p>Welcome {{ user.id }}</p>
+		<app-product-list-component></app-product-list-component>
+	}
 </main>
 <footer>
-	<p>© 2024 Company Name. All rights reserved.</p>
+	<p>© 2025 Bjerget. All rights reserved.</p>
 </footer>

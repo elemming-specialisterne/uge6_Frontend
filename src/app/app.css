@@ -4,6 +4,7 @@ header {
 	background-color: var(--header-background-color);
 	padding: 20px;
 }
+header p,
 header h1 {
 	color: var(--text-color);
 }
